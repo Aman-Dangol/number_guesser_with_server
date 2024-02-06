@@ -6,7 +6,6 @@ let num;
 async function getNumFromServer() {
   let response = await fetch("/getNum");
   num = await response.json();
-  console.log("bumer to guess",num);
 }
 
 getNumFromServer();
@@ -19,8 +18,6 @@ inputField.addEventListener("keydown", (e) => {
 
 function checkNum(num, inputNum) {
   result.style.color = "red";
-  console.log("here");
-  console.log(num, inputNum);
   if (num == inputNum) {
     result.style.color = "green";
     result.innerText = "Congrats!! you guessed The Number!!!";
