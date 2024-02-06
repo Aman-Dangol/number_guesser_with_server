@@ -2,8 +2,6 @@ const NumGen = require("./randomNumGen");
 const http = require("http");
 const url = require("url");
 const fs = require("fs");
-const { error } = require("console");
-const { findSourceMap } = require("module");
 let numGenerator = new NumGen();
 
 const server = http.createServer((req, res) => {
