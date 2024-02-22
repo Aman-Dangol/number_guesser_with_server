@@ -2,14 +2,10 @@ const NumGen = require("./randomNumGen");
 const http = require("http");
 const url = require("url");
 const fs = require("fs");
-const path = require("path");
-const { error } = require("console");
-const { findSourceMap } = require("module");
 let numGenerator = new NumGen();
 
 const server = http.createServer((req, res) => {
   let parsedUrl = url.parse(req.url);
-  // console.log(parsedUrl);
   if (parsedUrl.path == "/") {
     responder("text/html","./index.html",res)
     
@@ -17,7 +13,6 @@ const server = http.createServer((req, res) => {
    responder("application/javascript","./client.js",res);
   }
   else if(parsedUrl.path =="/getNum"){
-    console.log("ghere");
     let number = numGenerator.generateNumber();
     res.setHeader("content-type","application/json")
     res.end(JSON.stringify(number));
